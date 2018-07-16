@@ -3,7 +3,6 @@ server {
         listen [::]:80 default_server;
 
         root /var/www/page.com/html;
-
         index index.html;
 
         server_name zhaodandanxiangweijie.com www.zhaodandanxiangweijie.com;
@@ -20,9 +19,8 @@ server {
         	# proxy_cache_bypass $http_upgrade;
         }
 
-        location /en/ {
-            root /var/www/page2.com;
-            index index.html;
+        location /en {
+            root /var/www/page2.com/;
         }
 
         # deny access to .htaccess files, if Apache's document root
