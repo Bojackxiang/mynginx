@@ -38,12 +38,21 @@ server {
         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
+server {
+       listen 80;
+       listen [::]:80;
 
-# Virtual Host configuration for example.com
-#
-# You can move that to a different file under sites-available/ and symlink that
-# to sites-enabled/ to enable it.
-#
+       server_name love.api.zhaodandanxiangweijie.com;
+
+       root /var/www/page.com/;
+       index index.html;
+
+       location / {
+               try_files $uri $uri/ =404;
+       }
+}
+
+
 #server {
 #       listen 80;
 #       listen [::]:80;
@@ -56,5 +65,13 @@ server {
 #       location / {
 #               try_files $uri $uri/ =404;
 #       }
-#}
+}
+
+# Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+
+
 
