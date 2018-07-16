@@ -20,7 +20,8 @@ server {
         }
 
         location /en {
-            root /var/www/page2.com/;
+            #root /var/www/page2.com;
+            return 200 "this is a test page";
         }
 
         # deny access to .htaccess files, if Apache's document root
