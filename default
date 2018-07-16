@@ -35,6 +35,19 @@ server {
         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
+server {
+       listen 80;
+       listen [::]:80;
+
+       server_name test.zhaodandanxiangweijie.com
+
+       root /var/www/page2.com;
+       index index.html;
+
+       location / {
+               try_files $uri $uri/ =404;
+       }
+}
 
 
 # Virtual Host configuration for example.com
