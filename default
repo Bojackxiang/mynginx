@@ -20,7 +20,7 @@ server {
         }
 
         location /en {
-            root /var/www/page.com/en;
+            root /var/www/page.com;
         }
 
         # deny access to .htaccess files, if Apache's document root
