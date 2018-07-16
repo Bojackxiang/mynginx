@@ -20,7 +20,7 @@ server {
         }
 
         location /en {
-            root /var/www/page2.com/html;
+            root /var/www/page.com/page2.com/html
             index index.html;
         }
 
