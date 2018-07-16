@@ -21,7 +21,6 @@ server {
 
         location /en {
             root /var/www/page.com/page2.com/html;
-            index index.html;
         }
 
         # deny access to .htaccess files, if Apache's document root
