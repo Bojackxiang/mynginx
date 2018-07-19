@@ -42,7 +42,9 @@ server {
        listen 80;
        listen [::]:80;
 
-       server_name love.api.zhaodandanxiangweijie.com;
+       server_name love.zhaodandanxiangweijie.com;
+       ssl_certificate /etc/letsencrypt/live/zhaodandanxiangweijie.com/fullchain.pem; # managed by Certbot
+       ssl_certificate_key /etc/letsencrypt/live/zhaodandanxiangweijie.com/privkey.pem; # managed by Certbot
 
        root /var/www/page.com/;
        index index.html;
