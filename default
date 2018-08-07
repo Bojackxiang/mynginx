@@ -41,14 +41,10 @@ server {
 }
 
 server {
-        gzip on;
-        gzip_types text/plain application/xml;
-        gzip_proxied no-cache no-store private expired auth;
-        gzip_min_length 1000;
 
         listen 80;
         server_name zhaodandanxiangweijie.com;
-        root /var/www/aisfexpo.com.au;
+        root root /var/www/page.com/html;
         index index.html;
 
         location ~ /api/(?<apiurl>.+) {
@@ -57,9 +53,12 @@ server {
                 proxy_pass http://127.0.0.1:3000/$apiurl;
         }
 
-                ssl on;
-                ssl_certificate /etc/letsencrypt/live/www.aisfexpo.com.au/fullchain.pem;
-                ssl_certificate_key /etc/letsencrypt/live/www.aisfexpo.com.au/privkey.pem;
+        listen [::]:443 ssl ipv6only=on; # managed by Certbot
+        listen 443 ssl; # managed by Certbot
+        ssl_certificate /etc/letsencrypt/live/zhaodandanxiangweijie.com/fullchain.pem; # managed by Certbot
+        ssl_certificate_key /etc/letsencrypt/live/zhaodandanxiangweijie.com/privkey.pem; # managed by Certbot
+        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
 server {
