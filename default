@@ -44,7 +44,7 @@ server {
 
         listen 80;
         server_name zhaodandanxiangweijie.com;
-        root root /var/www/page.com/html;
+        root /var/www/page.com/html;
         index index.html;
 
         location ~ /api/(?<apiurl>.+) {
