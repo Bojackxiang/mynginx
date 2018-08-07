@@ -42,7 +42,7 @@ server {
 
 # api listening port
 server {
-        listen 443;
+        listen 80;
         server_name zhaodandanxiangweijie.com;
 
         location ~ /api/(?<apiurl>.+) {
