@@ -7,8 +7,6 @@ server {
 
         server_name zhaodandanxiangweijie.com www.zhaodandanxiangweijie.com;
 
-        return 301 https://zhaodandanxiangweijie.com$request_uri;
-
         location / {
             # First attempt to serve request as file, then
             # as directory, then fall back to displaying a 404.
@@ -25,13 +23,6 @@ server {
             root /var/www/page.com/;
         }
 
-        # deny access to .htaccess files, if Apache's document root
-        # concurs with nginx's one
-        #
-        #location ~ /\.ht {
-        #       deny all;
-        #}
-
         listen [::]:443 ssl ipv6only=on; # managed by Certbot
         listen 443 ssl; # managed by Certbot
         ssl_certificate /etc/letsencrypt/live/zhaodandanxiangweijie.com/fullchain.pem; # managed by Certbot
@@ -40,8 +31,17 @@ server {
         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
+# build a listen port for listen api building
 server {
+        listen 80;
+        listen [::]:80;
+        server_name zhaodandanxiangweijie.com;
 
+        return 301 https://www.aisfexpo.com.au$request_uri;
+}
+
+# api listening port
+server {
         listen 80;
         server_name zhaodandanxiangweijie.com;
         root /var/www/page.com/html;
@@ -52,7 +52,7 @@ server {
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
                 proxy_pass http://127.0.0.1:3000/$apiurl;
         }
-        
+
         ssl_certificate /etc/letsencrypt/live/zhaodandanxiangweijie.com/fullchain.pem; # managed by Certbot
         ssl_certificate_key /etc/letsencrypt/live/zhaodandanxiangweijie.com/privkey.pem; # managed by Certbot
         include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
