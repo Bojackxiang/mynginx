@@ -37,15 +37,13 @@ server {
         listen [::]:80;
         server_name zhaodandanxiangweijie.com;
 
-        return 301 https://www.aisfexpo.com.au$request_uri;
+        return 301 https://zhaodandanxiangweijie.com$request_uri;
 }
 
 # api listening port
 server {
-        listen 80;
+        listen 443;
         server_name zhaodandanxiangweijie.com;
-        root /var/www/page.com/html;
-        index index.html;
 
         location ~ /api/(?<apiurl>.+) {
                 proxy_set_header X-Real-IP $remote_addr;
