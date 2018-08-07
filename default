@@ -19,8 +19,8 @@ server {
 }
 
 server {
-        listen 445;
-        server_name www.aisfexpo.com.au;
+        listen 443;
+        server_name zhaodandanxiangweijie.com;
         root /var/www/page.com/html;
         index index.html;
 
