@@ -36,7 +36,7 @@ server {
 
 server {
         listen 443;
-        server_name zhaodandanxiangweijie.com
+        server_name zhaodandanxiangweijie.com;
 
         location /api {
                 proxy_set_header X-Real-IP $remote_addr;
