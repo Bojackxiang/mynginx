@@ -19,7 +19,7 @@ server {
 }
 
 server {
-        listen 443;
+        listen 445;
         server_name www.aisfexpo.com.au;
         root /var/www/page.com/html;
         index index.html;
